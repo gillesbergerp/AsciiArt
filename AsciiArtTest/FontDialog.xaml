@@ -1,0 +1,42 @@
+﻿<Window x:Class="AsciiArtTest.FontDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AsciiArtTest"
+             mc:Ignorable="d" Height="360" Width="360" ShowInTaskbar="False"
+    WindowStartupLocation="CenterOwner" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="12">
+            <TextBlock Text="Alphabet"/>
+            <TextBox x:Name="TbAlphabet" Margin="0,12,0,24"/>
+            <TextBlock Text="Font"/>
+            <ComboBox x:Name="CbFontFamily" SelectedIndex="0" ItemsSource="{x:Static Fonts.SystemFontFamilies}" Margin="0,12,0,24"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="CbFontStyle" SelectedIndex="0">
+                    <ComboBoxItem Content="Regular"/>
+                    <ComboBoxItem Content="Bold"/>
+                    <ComboBoxItem Content="Italic"/>
+                </ComboBox>
+                <TextBox x:Name="TbFontSize" Margin="6,0,0,0" Grid.Column="1" Text="16" PreviewTextInput="TbFontSize_PreviewTextInput" DataObject.Pasting="TbFontSize_Pasting"/>
+            </Grid>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="BtnOk_Click" IsDefault="True" Content="OK"/>
+            <Button IsCancel="True" Content="Cancel" Grid.Column="1"/>
+        </Grid>
+    </Grid>
+</Window>

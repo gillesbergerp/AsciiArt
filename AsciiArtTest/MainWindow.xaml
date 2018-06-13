@@ -1,0 +1,211 @@
+﻿<Window x:Class="AsciiArtTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsciiArtTest"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="ASCII Art" Height="450" Width="800">
+
+    <Window.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
+        <local:InvertedValueToVisibilityConverter x:Key="InvertedValueToVisibilityConverter"/>
+    </Window.Resources>
+
+    <Grid x:Name="GridMain">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="GifShown">
+                    <VisualState.Storyboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TbAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="WvAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState.Storyboard>
+                </VisualState>
+                <VisualState x:Name="HtmlShown">
+                    <VisualState.Storyboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TbAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="WvAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState.Storyboard>
+                </VisualState>
+                <VisualState x:Name="ImageShown">
+                    <VisualState.Storyboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TbAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="WvAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState.Storyboard>
+                </VisualState>
+                <VisualState x:Name="TextShown">
+                    <VisualState.Storyboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ImgAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="TbAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="WvAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeOriginal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MeAscii" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Collapsed}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState.Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="12">
+                    <TextBlock Text="Output"/>
+                    <ComboBox x:Name="CbOutput" Margin="0,12,0,24" SelectedIndex="1">
+                        <ComboBoxItem Content="HTML"/>
+                        <ComboBoxItem Content="Image"/>
+                        <ComboBoxItem Content="Text"/>
+                    </ComboBox>
+                    <StackPanel Visibility="{Binding ElementName=CbOutput, Path=SelectedIndex, Converter={StaticResource InvertedValueToVisibilityConverter}, ConverterParameter=2}">
+                        <TextBlock Text="Drawing mode"/>
+                        <TextBlock Margin="0,12,0,0" Text="Use image color as"/>
+                        <RadioButton x:Name="RbImgColorBack" Content="background"/>
+                        <RadioButton x:Name="RbImgColorFore" Content="foreground"/>
+                        <RadioButton Content="nothing" IsChecked="True"/>
+                        <Grid Margin="0,12,0,24">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <xctk:ColorPicker x:Name="CpBackground" SelectedColor="White" IsEnabled="{Binding ElementName=RbImgColorBack, Path=IsChecked, Mode=OneWay, Converter={StaticResource InvertedBoolConverter}}"/>
+                            <xctk:ColorPicker x:Name="CpForeground" SelectedColor="Black" Grid.Column="1" IsEnabled="{Binding ElementName=RbImgColorFore, Path=IsChecked, Mode=OneWay, Converter={StaticResource InvertedBoolConverter}}"/>
+                        </Grid>
+                        <Slider x:Name="SliderOpacity" SmallChange="0.05" LargeChange="0.2" Value="1" Visibility="{Binding ElementName=RbImgColorBack,Path=IsChecked,Mode=OneWay,Converter={StaticResource BoolToVisibilityConverter}}" Maximum="1" Minimum="0"/>
+                    </StackPanel>
+                    <TextBlock Text="Rendering option"/>
+                    <ComboBox x:Name="CbRenderingOption" Margin="0,12,0,24" SelectedIndex="0">
+                        <ComboBoxItem Content="Brightness based"/>
+                        <ComboBoxItem Content="Structural similarity"/>
+                        <ComboBoxItem Content="Mean squared error"/>
+                        <ComboBoxItem Content="Chi squared distance"/>
+                        <ComboBoxItem Content="Euclidean distance"/>
+                        <ComboBoxItem Content="Earth movers distance"/>
+                        <ComboBoxItem Content="Intersection"/>
+                        <ComboBoxItem Content="Bhattacharyya distance"/>
+                        <ComboBoxItem Content="Manhattan distance"/>
+                        <ComboBoxItem Content="Matusita distance"/>
+                    </ComboBox>
+                    <StackPanel Visibility="{Binding ElementName=CbRenderingOption, Path=SelectedIndex, Mode=OneWay, Converter={StaticResource InvertedValueToVisibilityConverter}, ConverterParameter=2}">
+                        <TextBlock Text="Rendering mode"/>
+                        <ComboBox x:Name="CbRenderingMode" Margin="0,12,0,24" SelectedIndex="0">
+                            <ComboBoxItem Content="Default"/>
+                            <ComboBoxItem Content="Inverted"/>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+            <Grid Grid.Row="1">
+                <TextBlock x:Name="TbInfos" Margin="12"/>
+                <ProgressBar x:Name="PbProgress" VerticalAlignment="Bottom"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Click="BtnLoadImage_Click" Content="Load image"/>
+                <Button Click="BtnLoadGif_Click" Content="Load GIF" Grid.Column="1"/>
+                <Button Click="BtnChangeFont_Click" Content="Change font" Grid.Row="1"/>
+                <Button Click="BtnConvert_Click" Content="Convert" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="ImgOriginal"/>
+            <MediaElement x:Name="MeOriginal"/>
+            <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" Width="5" ResizeBehavior="PreviousAndNext"/>
+            <Grid Margin="12,0,0,0" Grid.Column="2">
+                <TextBox x:Name="TbAscii" FontSize="10" FontFamily="Courier New" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="0"/>
+                <Image x:Name="ImgAscii"/>
+                <WebBrowser x:Name="WvAscii"/>
+                <MediaElement x:Name="MeAscii"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
